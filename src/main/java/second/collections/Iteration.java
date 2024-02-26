@@ -1,6 +1,7 @@
 package second.collections;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Iteration {
     public static void main(String[] args) {
@@ -12,5 +13,10 @@ public class Iteration {
             System.out.println(friend);
         }
         friends.forEach(System.out::println);
+        final List<String> friendsFromCapitalLetter = friends.stream().
+                map(String::toUpperCase).
+                filter(name ->name.startsWith("N")).
+                collect(Collectors.toList());
+        System.out.println(friendsFromCapitalLetter);
     }
 }
